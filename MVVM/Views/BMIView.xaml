@@ -56,7 +56,38 @@
             </Frame>
             <!--#endregion-->
             <Frame Background="White" BorderColor="#0a598e">
-                <VerticalStackLayout />
+                <Frame Background="White" BorderColor="#0a598e">
+                    <VerticalStackLayout HeightRequest="100" VerticalOptions="Start">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="Altezza (cm)"
+                            TextColor="{StaticResource txt-color}" />
+                        <gauge:SfLinearGauge
+                            Margin="0,10,0,0"
+                            Interval="50"
+                            Maximum="250"
+                            Minimum="0">
+                            <gauge:SfLinearGauge.MarkerPointers>
+                                <gauge:LinearContentPointer
+                                    x:Name="weightPointer"
+                                    IsInteractive="True"
+                                    Position="Cross"
+                                    Value="50">
+                                    <gauge:LinearContentPointer.Content>
+                                        <Grid HeightRequest="25" WidthRequest="25">
+                                            <RoundRectangle CornerRadius="5" Fill="#ff0074E3" />
+                                            <Label
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Source={x:Reference heightPointer}, Path=Value, StringFormat='{0:0}'}"
+                                                TextColor="White"
+                                                VerticalOptions="Center" />
+                                        </Grid>
+                                    </gauge:LinearContentPointer.Content>
+                                </gauge:LinearContentPointer>
+                            </gauge:SfLinearGauge.MarkerPointers>
+                        </gauge:SfLinearGauge>
+                    </VerticalStackLayout>
+                </Frame>
             </Frame>
 
             <!--#region Weight-->
