@@ -1,4 +1,6 @@
-﻿namespace MAUI_EasyBMI
+﻿using MAUI_EasyBMI.MVVM.Views;
+
+namespace MAUI_EasyBMI
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new BMIView();
         }
     }
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI_EasyBMI.MVVM.Views.BMIView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="BMIView">
+
+    <ContentPage.Resources>
+        <Color x:Key="txt-color">Grey</Color>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <ScrollView.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Offset="0.0" Color="#0e76bd" />
+                <GradientStop Offset="0.0" Color="#1194ec" />
+            </LinearGradientBrush>
+        </ScrollView.Background>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            VerticalOptions="Center">
+            <!--#region Height-->
+            <Frame Background="White" BorderColor="#0a598e">
+                <VerticalStackLayout HeightRequest="100" VerticalOptions="Start">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Altezza (cm)"
+                        TextColor="{StaticResource txt-color}" />
+                </VerticalStackLayout>
+            </Frame>
+            <!--#endregion-->
+            <Frame Background="White" BorderColor="#0a598e">
+                <VerticalStackLayout />
+            </Frame>
+
+            <!--#region Weight-->
+            <Frame Background="White" BorderColor="#0a598e">
+                <VerticalStackLayout />
+            </Frame>
+            <!--#endregion-->
+
+
+            <!--#region Result-->
+
+            <!--#endregion-->
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
