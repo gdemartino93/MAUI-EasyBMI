@@ -3,6 +3,7 @@
     x:Class="MAUI_EasyBMI.MVVM.Views.BMIView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
     Title="BMIView">
 
     <ContentPage.Resources>
@@ -13,7 +14,7 @@
         <ScrollView.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Offset="0.0" Color="#0e76bd" />
-                <GradientStop Offset="0.0" Color="#1194ec" />
+                <GradientStop Offset="1.1" Color="#1194ec" />
             </LinearGradientBrush>
         </ScrollView.Background>
         <VerticalStackLayout
@@ -27,6 +28,30 @@
                         HorizontalTextAlignment="Center"
                         Text="Altezza (cm)"
                         TextColor="{StaticResource txt-color}" />
+                    <gauge:SfLinearGauge
+                        Margin="0,10,0,0"
+                        Interval="50"
+                        Maximum="250"
+                        Minimum="0">
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearContentPointer
+                                x:Name="heightPointer"
+                                IsInteractive="True"
+                                Position="Cross"
+                                Value="50">
+                                <gauge:LinearContentPointer.Content>
+                                    <Grid HeightRequest="25" WidthRequest="25">
+                                        <RoundRectangle CornerRadius="5" Fill="#ff0074E3" />
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Text="{Binding Source={x:Reference heightPointer}, Path=Value, StringFormat='{0:0}'}"
+                                            TextColor="White"
+                                            VerticalOptions="Center" />
+                                    </Grid>
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </gauge:SfLinearGauge>
                 </VerticalStackLayout>
             </Frame>
             <!--#endregion-->
@@ -36,7 +61,9 @@
 
             <!--#region Weight-->
             <Frame Background="White" BorderColor="#0a598e">
-                <VerticalStackLayout />
+                <VerticalStackLayout>
+                    <gauge:SfRadialGauge />
+                </VerticalStackLayout>
             </Frame>
             <!--#endregion-->
 
